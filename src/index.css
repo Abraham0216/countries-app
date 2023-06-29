@@ -1,13 +1,34 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    font-family: 'Nunito Sans', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+html {
+    @apply scrollbar-track-darkBlue scrollbar-none  dark:scrollbar-thumb-white scrollbar-thumb-rounded scrollbar-thin
+} 
+
+/* Estilos generales del scrollbar */
+/* ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+  }
+
+  
+  /* Estilos específicos para el modo oscuro */
+/* .dark ::-webkit-scrollbar-thumb {
+    background-color: red;
+  } */
+  
+  /* Estilos específicos para el modo claro */
+  /* .light ::-webkit-scrollbar-thumb {
+    background-color: #aaa;
+  }
+    */
