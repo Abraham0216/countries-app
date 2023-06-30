@@ -11,7 +11,7 @@ const Home = () => {
 
   return (
 
-    <div className='lg:px-14 pt-32'>
+    <div className='lg:px-14 pt-24'>
       <div className='flex flex-col  mx-auto   '>
         <div className='flex flex-col ml-4 lg:ml-0 justify-center lg:flex-row lg:justify-between  lg:items-center mb-6'>
           <div className={` transition-all duration-500 ease-in-out  w-11/12 lg:w-2/5 lg: py-4 px-6  rounded-xl shadow-md ${isDark && 'bg-darkBlue text-white'}`}>
@@ -54,14 +54,14 @@ const Home = () => {
 
       <div className='flex flex-col lg:flex-row lg:flex-wrap lg:justify-center items-center gap-14 pb-8'>
         {filteredCountries?.map(country => (
-          <div className={`w-[290px] h-[370px] transition-all duration-500 ease-in-out  max-w-sm rounded shadow-lg cursor-pointer  ${isDark && 'bg-darkBlue text-white'}`} key={country.cca3} onClick={() => handleCountryClick(country)} >
-            <img className='h-[213px] w-full rounded-t-xl object-cover' src={country.flags.png} alt="flag"></img>
+          <div className={`w-[290px] h-[360px] transition-all duration-500 ease-in-out  max-w-sm rounded shadow-lg cursor-pointer  ${isDark && 'bg-darkBlue text-white'}`} key={country.cca3} onClick={() => handleCountryClick(country)} >
+            <img className='h-[175px] w-full rounded-t-lg object-cover' src={country.flags.png} alt="flag"></img>
             <div className='px-6 py-4'>
-              <h2 className='font-bold text-xl mb-2'>{country.name.common}</h2>
+              <h2 className='font-bold text-xl my-2'>{country.name.common}</h2>
 
-              <p className='text-base'><span className='font-semibold'>Population: </span>{country.population.toLocaleString()}</p>
-              <p className='text-base'><span className='font-semibold'>Region: </span>{country.region}</p>
-              <p className='text-base'><span className='font-semibold'>Capital: </span>{country.capital}</p>
+              <p className='text-base my-1'><span className='font-semibold'>Population: </span>{country.population.toLocaleString()}</p>
+              <p className='text-base my-1'><span className='font-semibold'>Region: </span>{country.region}</p>
+              <p className='text-base my-1'><span className='font-semibold'>Capital: </span>{country.capital}</p>
 
             </div>
 
