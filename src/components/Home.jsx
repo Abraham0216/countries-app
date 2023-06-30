@@ -1,11 +1,13 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { appContext } from '../App';
 import { AiOutlineSearch } from "react-icons/ai";
+import { RiArrowDropDownLine } from "react-icons/ri";
+import { RiArrowDropUpLine } from "react-icons/ri";
+
 
 const Home = () => {
     
-    const {filteredCountries, handleCountryClick, searchTerm, selectedRegion, handleSearchChange, handleRegionChange, isDark} = useContext(appContext);
-    const [isOpen, setIsOpen] = useState(false);
+    const {filteredCountries, isOpen, setIsOpen, handleCountryClick, searchTerm, selectedRegion, handleSearchChange, handleRegionChange, isDark} = useContext(appContext);
     
     return (
         
@@ -19,31 +21,40 @@ const Home = () => {
         </label>
         </div>
         
-     <div className={`p-4 mt-8 mb-10 transition-all duration-500 ease-in-out   w-fit rounded-xl shadow-md justify-start ${isDark && 'bg-darkBlue text-white'}`}>
-        <label htmlFor="regionFilter">Filter by Region:</label>
+     <div className={`relative mt-8 mb-10  transition-all duration-500 ease-in-out w-60 rounded-xl shadow-md justify-start ${isDark && 'bg-darkBlue text-white'}`}>
+        
         {/* //TODO: Styling for this select (SO MANY THINGS TO DO TO MAKING WORK) */}
         
-        {/* <button onClick={() => setIsOpen(!isOpen)} className='px-4 py-2 bg-inherit  outline-none border-none shadow-sm rounded-md focus:bg-inherit' id="regionFilter" value={selectedRegion} onChange={handleRegionChange}></button>
+        <button onClick={() => setIsOpen(!isOpen)} className='p-4 w-full  cursor-pointer bg-inherit  outline-none border-none shadow-sm rounded-md  focus:bg-inherit flex justify-between items-center' id="regionFilter" value={selectedRegion} onChange={handleRegionChange}>
+
+        <label className='cursor-pointer' htmlFor="regionFilter">Filter by Region {selectedRegion}</label>
+        {!isOpen ?
+        <RiArrowDropDownLine style={{width: "24px", height: "24px", opacity: "0.4"}}/>
+        : <RiArrowDropUpLine style={{width: "24px", height: "24px", opacity: "0.4"}}/>
+        }
+
+
+        </button>
         
 
         {isOpen && (
-          <ul className='px-4 py-2 bg-inherit  outline-none border-none shadow-sm rounded-md focus:bg-inherit' id="regionFilter" value={selectedRegion} onChange={handleRegionChange}>
-          <li onChange={handleRegionChange} value="">All</li>
-          <li onChange={handleRegionChange} value="africa">Africa</li>
-          <li onChange={handleRegionChange}  value="americas">Americas</li>
-          <li onChange={handleRegionChange} value="asia">Asia</li>
-          <li onChange={handleRegionChange} value="europe">Europe</li>
-          <li onChange={handleRegionChange} value="oceania">Oceania</li>
+          <ul className={`bg-inherit w-full absolute top-16 rounded-lg shadow-md px-6 py-2 transition-all duration-500 ease-in-out ${isDark ? 'bg-darkBlue text-white' : 'bg-white'}`} id="regionFilter" value={selectedRegion} onChange={handleRegionChange}>
+          <li className='mb-2.5 cursor-pointer' onClick={() => handleRegionChange('')} value="">All</li>
+          <li className='mb-2.5 cursor-pointer' onClick={() => handleRegionChange('Africa')} value="africa">Africa</li>
+          <li className='mb-2.5 cursor-pointer' onClick={() => handleRegionChange('Americas')}  value="americas">Americas</li>
+          <li className='mb-2.5 cursor-pointer' onClick={() => handleRegionChange('Asia')} value="asia">Asia</li>
+          <li className='mb-2.5 cursor-pointer' onClick={() => handleRegionChange('Europe')} value="europe">Europe</li>
+          <li className='mb-2.5 cursor-pointer' onClick={() => handleRegionChange('Oceania')} value="oceania">Oceania</li>
           </ul>
-        )} */}
-         <select className='px-4 py-2 bg-inherit  outline-none border-none shadow-sm rounded-md focus:bg-inherit' id="regionFilter" value={selectedRegion} onChange={handleRegionChange}>
+        )} 
+         {/* <select className='px-4 py-2 bg-inherit  outline-none border-none shadow-sm rounded-md focus:bg-inherit' id="regionFilter" value={selectedRegion} onChange={handleRegionChange}>
           <option value="">All</option>
           <option value="africa">Africa</option>
           <option value="americas">Americas</option>
           <option value="asia">Asia</option>
           <option value="europe">Europe</option>
           <option value="oceania">Oceania</option>
-        </select> 
+        </select>  */}
       </div>
         
         </div>
