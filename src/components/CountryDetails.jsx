@@ -20,7 +20,7 @@ const CountryDetails = () => {
   };
 
   return (
-    <div className="pt-28 px-4 lg:px-20 min-h-screen  flex justify-center items-center">
+    <div className="pt-32 lg:pt-56 px-4 lg:px-20 min-h-screen  flex justify-center">
       <div>
         <button className={`px-6 py-1 mb-6 xl:mt-6 transition-all duration-500 ease-in-out border  shadow-sm  flex items-center rounded ${isDark && 'bg-darkBlue text-white border-none shadow-black'}`} onClick={goBack}><BsArrowLeft style={{ width: "20px", height: "20px" }} /> <span className='ml-2.5'>Back</span></button>
         {selectedCountry && (
@@ -48,7 +48,7 @@ const CountryDetails = () => {
               </div>
 
 
-              <p className='mt-10 lg:flex flex-row items-center'><span className='font-extrabold'>Border Countries:</span><ul className={'flex flex-row  flex-wrap justify-evenly mt-4 lg:w-3/4 lg:mt-0 mb-14 lg:mb-0 gap-2 '}> {selectedCountry.borders ? (selectedCountry.borders).map(border => <li key={border}><button className={` border rounded shadow-sm  text-xs px-5 py-2  ${isDark && 'bg-darkBlue text-white border-none shadow-black'}`} onClick={() => handleBorderCountryClick(border)}>{responseData.map(country => country.cca3 === border && country.name.common)}</button></li>) : 'NO INFO'} </ul></p>
+              <p className='mt-10 lg:flex flex-row items-center'><span className='font-extrabold'>Border Countries:</span><ul className={'flex flex-row  flex-wrap justify-evenly mt-4 lg:w-3/4 lg:mt-0 mb-14 lg:mb-0 gap-2 '}> {selectedCountry.borders ? (selectedCountry.borders).map(border => <li key={border}><button className={` border rounded shadow-sm  text-xs px-5 py-2  ${isDark && 'bg-darkBlue text-white border-none shadow-black'}`} onClick={() => handleBorderCountryClick(border)}>{responseData.map(country => country.cca3 === border && country.name.common)}</button></li>) : 'ISLAND'} </ul></p>
             </div>
 
           </div>

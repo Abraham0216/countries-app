@@ -11,9 +11,9 @@ const Home = () => {
 
   return (
 
-    <div className='lg:px-14 pt-24'>
+    <div className='lg:px-16 pt-32 lg:pt-24'>
       <div className='flex flex-col  mx-auto   '>
-        <div className='flex flex-col ml-4 lg:ml-0 justify-center lg:flex-row lg:justify-between  lg:items-center mb-6'>
+        <div className='flex flex-col ml-4 lg:ml-0 justify-center lg:flex-row lg:justify-between  lg:items-center mb-4'>
           <div className={` transition-all duration-500 ease-in-out  w-11/12 lg:w-2/5 lg: py-4 px-6  rounded-xl shadow-md ${isDark && 'bg-darkBlue text-white'}`}>
             <label className='flex flex-row items-center justify-between lg:justify-around' htmlFor='inputField'>
               <AiOutlineSearch style={{ width: "24px", height: "24px", opacity: "0.4" }} />
@@ -52,7 +52,7 @@ const Home = () => {
       </div>
 
 
-      <div className='flex flex-col lg:flex-row lg:flex-wrap lg:justify-center items-center gap-14 pb-8'>
+      <div className='flex flex-col lg:flex-row lg:flex-wrap lg:justify-center items-center gap-12 pb-8'>
         {filteredCountries?.map(country => (
           <div className={`w-[290px] h-[360px] transition-all duration-500 ease-in-out  max-w-sm rounded shadow-lg cursor-pointer  ${isDark && 'bg-darkBlue text-white'}`} key={country.cca3} onClick={() => handleCountryClick(country)} >
             <img className='h-[175px] w-full rounded-t-lg object-cover' src={country.flags.png} alt="flag"></img>
